@@ -2,3 +2,31 @@
   font-family: sans-serif;
   text-align: center;
 }
+
+.layout {
+  /* border: 1px solid black; */
+  display: flex;
+  /* justify-content: center;
+  align-items: center; */
+  width: 100%;
+  flex-wrap: wrap;
+  height: 100vh;
+}
+
+.row1,
+.row2,
+.row3 {
+  /* border: 1px solid black; */
+  height: 100px;
+  width: 50%;
+  display: flex;
+}
+
+.box {
+  width: 32%;
+  border: 1px solid grey;
+  cursor: pointer;
+}
+.box:hover {
+  background-color: steelblue;
+}

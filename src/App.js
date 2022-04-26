@@ -1,28 +1,34 @@
-import React, { Component } from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from "react";
+import "./App.css";
+import { Layout } from "./components/layout";
 
-class App extends Component {
-  render() {
-    return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>
-      </div>
-    );
-  }
-}
+const App = () => {
+  const [turn, setTurn] = useState(true);
+  const winningPossibilities = [
+    { combo: ["0", "1", "2"] },
+    { combo: ["3", "4", "5"] },
+    { combo: ["6", "7", "8"] },
+    { combo: ["0", "3", "6"] },
+    { combo: ["1", "4", "7"] },
+    { combo: ["2", "5", "8"] },
+    { combo: ["0", "4", "8"] },
+    { combo: ["2", "4", "6"] }
+  ];
+
+  const layoutPositions = ["0", "1", "2", "3", "4", "5", "6", "7", "8"];
+  console.log(turn);
+
+  return (
+    <div className="App">
+      <h2>{`Player${turn ? 1 : 2}`}</h2>
+      <Layout
+        turn={turn}
+        setTurn={setTurn}
+        layoutPositions={layoutPositions}
+        winningPossibilities={winningPossibilities}
+      />
+    </div>
+  );
+};
 
 export default App;
